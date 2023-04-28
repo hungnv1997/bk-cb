@@ -354,7 +354,7 @@ body {
   align-self: flex-start;
   align-items: center;
 
-  &:nth-child(even) {
+  &.my-message {
     align-self: flex-end;
 
     p {
