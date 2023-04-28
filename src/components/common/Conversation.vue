@@ -37,7 +37,9 @@
       <li class="c-bubble">
         <img class="c-bubble__image" src="" alt="" />
         <p class="c-bubble__msg">
-          I will pay you in exposure mate!<span class="c-bubble__timestamp"
+          I will pay you in exposure mate!aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+          aaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaa<span
+            class="c-bubble__timestamp"
             >2020-08-20 18:21:00</span
           >
         </p>
