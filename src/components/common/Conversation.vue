@@ -2,7 +2,7 @@
   <div
     class="c-openchat__box__info"
     v-bind="containerProps"
-    style="height: 100vh"
+    style="height: calc(100vh - 12rem)"
   >
     <!-- <ul>
       <li class="c-bubble">
