@@ -1,22 +1,30 @@
 <template>
-  <div>
-    Home........
-
-    <button @click="handleClick">{{ store.count }}</button>
-    <button @click="handleClickTest">test</button>
-  </div>
+  <main class="c-app">
+    <side-bar />
+    <search-bar />
+    <section class="c-openchat">
+      <nav-bar />
+      <chat-space />
+      <conversation />
+    </section>
+  </main>
 </template>
-
-<script setup>
-import { useCounterStore } from "../store/counter";
-const store = useCounterStore();
-const handleClick = () => {
-  store.increment();
-};
-const handleClickTest = () => {
-  let { count } = store;
-  count = 9999;
+<script lang="ts">
+import ChatSpace from "../components/common/ChatSpace.vue";
+import Conversation from "../components/common/Conversation.vue";
+import NavBar from "../components/common/NavBar.vue";
+import SearchBar from "../components/common/SearchBar.vue";
+import SideBar from "../components/common/SideBar.vue";
+export default {
+  name:"HomePage",
+  components: { SideBar, SearchBar, ChatSpace, NavBar, Conversation },
+  setup() {
+    return {};
+  },
 };
 </script>
 
-<style lang="scss" scoped></style>
+
+
+<style scoped lang="css"></style>
+

@@ -1,27 +1,503 @@
-<script lang="ts">
-import ChatSpace from "../components/common/ChatSpace.vue";
-import Conversation from "../components/common/Conversation.vue";
-import NavBar from "../components/common/NavBar.vue";
-import SearchBar from "../components/common/SearchBar.vue";
-import SideBar from "../components/common/SideBar.vue";
+<template>
+  <!-- https://dribbble.com/shots/15392711-Dashboard-Login-Sign-Up/-->
+
+  <div class="login-container">
+    <div class="login-form">
+      <div class="login-form-inner">
+        <div class="logo">
+          <GoogleIcon />
+        </div>
+        <h1>Login</h1>
+        <p class="body-text">See your growth and get consulting support!</p>
+
+        <a href="#" class="rounded-button google-login-button">
+          <span class="google-icon"><GoogleIconLogin /></span>
+          <span>Sign in with google</span>
+        </a>
+
+        <div class="sign-in-seperator">
+          <span>or Sign in with Email</span>
+        </div>
+
+        <div class="login-form-group">
+          <label for="email">Email <span class="required-star">*</span></label>
+          <input type="text" placeholder="email@website.com" id="email" />
+        </div>
+        <div class="login-form-group">
+          <label for="pwd">Password <span class="required-star">*</span></label>
+          <input
+            autocomplete="off"
+            type="text"
+            placeholder="Minimum 8 characters"
+            id="pwd"
+          />
+        </div>
+
+        <div class="login-form-group single-row">
+          <div class="custom-check">
+            <input
+              autocomplete="off"
+              type="checkbox"
+              checked
+              id="remember"
+            /><label for="remember">Remember me</label>
+          </div>
+
+          <a href="#" class="link forgot-link">Forgot Password ?</a>
+        </div>
+
+        <a class="rounded-button login-cta" @click="handleLogin">Login</a>
+
+        <div class="register-div">
+          Not registered yet?
+          <a href="#" class="link create-account">Create an account ?</a>
+        </div>
+      </div>
+    </div>
+    <div class="onboarding">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide color-1">
+            <div class="slide-image">
+              <img
+                src="https://raw.githubusercontent.com/ismailvtl/ismailvtl.github.io/master/images/startup-launch.png"
+                loading="lazy"
+                alt=""
+              />
+            </div>
+            <div class="slide-content">
+              <h2>Connect to the new world</h2>
+              <p>
+                Consistent quality and eperience across all platform and devices
+              </p>
+            </div>
+          </div>
+          <!-- <div class="swiper-slide color-1">
+            <div class="slide-image">
+              <img
+                src="https://raw.githubusercontent.com/ismailvtl/ismailvtl.github.io/master/images/cloud-storage.png"
+                loading="lazy"
+                alt=""
+              />
+            </div>
+            <div class="slide-content">
+              <h2>Turn your ideas into reality.</h2>
+              <p>
+                Consistent quality and eperience across all platform and devices
+              </p>
+            </div>
+          </div>
+
+          <div class="swiper-slide color-1">
+            <div class="slide-image">
+              <img
+                src="https://raw.githubusercontent.com/ismailvtl/ismailvtl.github.io/master/images/cloud-storage.png"
+                loading="lazy"
+                alt=""
+              />
+            </div>
+            <div class="slide-content">
+              <h2>Turn your ideas into reality.</h2>
+              <p>
+                Consistent quality and eperience across all platform and devices
+              </p>
+            </div>
+          </div> -->
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import GoogleIcon from "../components/common/SVG/GoogleIcon.vue";
+import GoogleIconLogin from "../components/common/SVG/GoogleIconLogin.vue";
+import { useRouter } from "vue-router";
 export default {
-  components: { SideBar, SearchBar, ChatSpace, NavBar, Conversation },
+  name: "Login",
   setup() {
-    return {};
+    const router = useRouter();
+    // const route = useRoute();
+    const handleLogin = () => {
+      router.replace({ path: "/home" });
+    };
+    return { handleLogin };
   },
+  components: { GoogleIcon, GoogleIconLogin },
 };
 </script>
 
-<template>
-  <main class="c-app">
-    <side-bar />
-    <search-bar />
-    <section class="c-openchat">
-      <nav-bar />
-      <chat-space />
-      <conversation />
-    </section>
-  </main>
-</template>
+<style lang="scss" scoped>
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500&display=swap");
 
-<style scoped lang="css"></style>
+$bodybg: #dcdefe;
+$primary-color: #5138ee;
+$grey: #d6d6d6;
+$placeholder: #969696;
+$white: #fff;
+$text: #333;
+$slider-bg: #eff3ff;
+$login-cta-hover: #1f0098;
+#app {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body {
+  background: $bodybg;
+  font-family: "Raleway", sans-serif;
+  height: 100vh;
+  display: flex;
+}
+
+.login-container {
+  display: flex;
+  max-width: 1200px;
+  background: $white;
+  margin: auto;
+  width: 100%;
+  min-width: 320px;
+}
+
+.login-container .logo svg {
+  height: 40px;
+  width: 40px;
+  fill: $primary-color;
+}
+
+.login-container .login-form {
+  width: 50%;
+  box-sizing: border-box;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.login-container .login-form .login-form-inner {
+  max-width: 380px;
+  width: 95%;
+}
+
+.login-container .login-form .google-login-button .google-icon svg {
+  height: 20px;
+  display: flex;
+  margin-right: 10px;
+}
+
+.login-container .login-form .google-login-button {
+  color: $text;
+  border: 1px solid $grey;
+  margin: 40px 0 20px;
+}
+
+.login-container .login-form .sign-in-seperator {
+  text-align: center;
+  color: $placeholder;
+  position: relative;
+  margin: 30px 0 20px;
+}
+
+.login-container .login-form .sign-in-seperator span {
+  background: $white;
+  z-index: 1;
+  position: relative;
+  padding: 0 10px;
+  font-size: 14px;
+}
+
+.login-container .login-form .sign-in-seperator:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: $grey;
+  left: 0;
+  top: 50%;
+  z-index: 0;
+}
+
+.login-container .login-form .login-form-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.login-container .login-form .login-form-group label {
+  font-size: 14px;
+  font-weight: 500;
+  color: $text;
+  margin-bottom: 10px;
+}
+
+.login-container .login-form .login-form-group input {
+  padding: 13px 20px;
+  box-sizing: border-box;
+  border: 1px solid $grey;
+  border-radius: 50px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: $text;
+  transition: linear 0.2s;
+}
+
+.login-container .login-form .login-form-group input:focus {
+  outline: none;
+  border: 1px solid $primary-color;
+}
+
+.login-container
+  .login-form
+  .login-form-group
+  input::-webkit-input-placeholder {
+  color: $placeholder;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.login-container .login-form .login-form-group.single-row {
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 5px;
+}
+
+/* custom checkbox */
+.login-container .login-form .custom-check input[type="checkbox"] {
+  height: 23px;
+  width: 23px;
+  margin: 0;
+  padding: 0;
+  opacity: 1;
+  appearance: none;
+  border: 2px solid $primary-color;
+  border-radius: 3px;
+  background: $white;
+  position: relative;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.login-container .login-form .custom-check input[type="checkbox"]:checked {
+  border: 2px solid $primary-color;
+  background: $primary-color;
+}
+
+.login-container
+  .login-form
+  .custom-check
+  input[type="checkbox"]:checked:before,
+.login-container
+  .login-form
+  .custom-check
+  input[type="checkbox"]:checked:after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background: $white;
+}
+
+.login-container
+  .login-form
+  .custom-check
+  input[type="checkbox"]:checked:before {
+  width: 8px;
+  top: 11px;
+  left: 2px;
+  transform: rotate(44deg);
+}
+
+.login-container
+  .login-form
+  .custom-check
+  input[type="checkbox"]:checked:after {
+  width: 14px;
+  top: 8px;
+  left: 5px;
+  transform: rotate(-55deg);
+}
+
+.login-container .login-form .custom-check input[type="checkbox"]:focus {
+  outline: none;
+}
+
+.login-container .login-form .custom-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container .login-form .custom-check label {
+  margin: 0;
+  color: $text;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.login-container .login-form .link {
+  color: $primary-color;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.login-container .login-form .link:hover {
+  text-decoration: underline;
+}
+
+.login-container .login-form .login-cta {
+  color: $white;
+  text-decoration: none;
+  border: 1px solid $primary-color;
+  margin: 25px 0 35px;
+  background: $primary-color;
+}
+
+.login-container .login-form .login-cta:hover {
+  background: $login-cta-hover;
+}
+
+.login-container .onboarding {
+  flex: 1;
+  background: $slider-bg;
+  display: none;
+  width: 50%;
+}
+
+.login-container .login-form .login-form-group label .required-star {
+  color: $primary-color;
+  font-size: 18px;
+  line-height: 10px;
+}
+
+.login-container .rounded-button {
+  display: flex;
+  width: 100%;
+  text-decoration: none;
+  border-radius: 50px;
+  padding: 13px 20px;
+  box-sizing: border-box;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+  align-items: center;
+  transition: linear 0.2s;
+}
+
+.login-container .rounded-button:hover {
+  box-shadow: 0px 0px 4px 0px $grey;
+}
+
+.login-container .body-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: $text;
+}
+
+.login-container .onboarding .swiper-container {
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.login-container .onboarding .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+  color: $text;
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.login-container .onboarding .swiper-pagination-bullet-active {
+  background-color: $primary-color;
+}
+
+.login-container .onboarding .swiper-slide {
+  flex-direction: column;
+  display: flex;
+}
+
+.login-container .onboarding .swiper-slide .slide-image img {
+  width: 100%;
+  height: 80%;
+}
+.login-container .onboarding .slide-content {
+  width: 60%;
+}
+
+.login-container .onboarding .slide-content h2 {
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.login-container .onboarding .slide-content p {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 300;
+}
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-container-horizontal > .swiper-pagination-bullets {
+  bottom: 30px;
+}
+
+.login-container .login-form .login-form-inner h1 {
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .login-container .onboarding {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .login-container {
+    height: 100vh;
+  }
+}
+
+@media screen and (width: 768px) {
+  .login-container .onboarding {
+    order: 0;
+  }
+  .login-container .login-form {
+    order: 1;
+  }
+  .login-container {
+    height: 100vh;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .login-container .login-form {
+    padding: 20px;
+  }
+  .login-container .login-form-group {
+    margin-bottom: 16px;
+  }
+  .login-container {
+    margin: 0;
+  }
+}
+</style>
