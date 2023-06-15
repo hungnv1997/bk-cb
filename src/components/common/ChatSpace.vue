@@ -1,7 +1,11 @@
 <template>
   <div class="c-openchat__box">
     <div class="c-openchat__box__header">
-      <img class="c-openchat__box__pp" src="" alt="" />
+      <img
+        class="c-openchat__box__pp"
+        src="https://s.cdpn.io/profiles/user/739421/80.jpg?1557442808"
+        alt=""
+      />
       <p class="c-openchat__box__name">Aaron McGuire</p>
       <span class="c-openchat__box__status"></span>
     </div>

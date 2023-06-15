@@ -30,6 +30,7 @@ body {
   box-shadow: -1px 1px 10px 2px rgba(204, 197, 197, 0.5);
   border-radius: 8px;
   margin: 0;
+  width: 100%;
 }
 .c-sidepanel {
   flex-basis: 20%;
@@ -265,12 +266,18 @@ body {
 .c-openchat {
   flex-basis: 60%;
   &__header {
-    padding: 2rem 2rem;
+    // padding: 2rem 2rem;
+    // border-bottom: 1px solid #f1f4f6;
+    // width: 100%;
+    // display: flex;
+    // justify-content: flex-end;
+    // align-items: center;
+    padding: 1rem;
     border-bottom: 1px solid #f1f4f6;
-    width: 100%;
+    // margin: 0 1rem; 
     display: flex;
-    justify-content: flex-end;
     align-items: center;
+    background-color: white;
   }
   ul {
     display: flex;
@@ -317,9 +324,9 @@ body {
   &__header {
     padding: 1rem 0;
     border-bottom: 1px solid #f1f4f6;
-    margin: 0 1rem;
     display: flex;
     align-items: center;
+    background-color: #fff;
   }
   &__status {
     width: 10px;
@@ -347,6 +354,12 @@ body {
     flex-direction: column;
     padding: 0 2rem;
     margin: 2rem 0;
+  }
+  &::-webkit-scrollbar {
+    width: 1px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
   }
 }
 .c-bubble {
