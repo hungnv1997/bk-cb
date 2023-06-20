@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  web:
+    container_name: vue-app-test
+    build:
+      # context: .
+      dockerfile: Dockerfile
+    ports:
+        - 8080:81  

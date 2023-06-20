@@ -1,12 +1,12 @@
 // global
-@use "./global/index";
+@use "./global/index" as mixxins;
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 
 $sidepanel-bg: rgb(245, 249, 253);
 $sidepanel: rgb(235, 240, 246);
 $body: rgb(128, 132, 136);
 $notification: rgb(31, 141, 251);
-
+$search-input: #dddddd;
 * {
   margin: 0;
   padding: 0;
@@ -153,12 +153,12 @@ body {
 .c-chats {
   flex-basis: 20%;
   padding: 1rem;
-  border-right: 1px solid #f1f4f6;
-  background: rgb(255, 255, 255);
+  border-right: 1px solid mixxins.$cl_ddd;
+  background: #f5f9fd;
   min-height: 100vh;
   &__header {
     padding: 1rem 0;
-    border-bottom: 1px solid #f1f4f6;
+    border-bottom: 1px solid mixxins.$cl_ddd;
     width: 100%;
     div {
       position: relative;
@@ -168,7 +168,7 @@ body {
       padding: 10px 10px 10px 40px;
       font-size: 13px;
       border-radius: 100px;
-      border: 1px solid #f1f4f6;
+      border: 1px solid $search-input;
       color: $body;
     }
     label {
@@ -264,7 +264,7 @@ body {
 }
 
 .c-openchat {
-  flex-basis: 60%;
+  flex-basis: 80%;
   &__header {
     // padding: 2rem 2rem;
     // border-bottom: 1px solid #f1f4f6;
@@ -273,7 +273,7 @@ body {
     // justify-content: flex-end;
     // align-items: center;
     padding: 1rem;
-    border-bottom: 1px solid #f1f4f6;
+    border-bottom: 1px solid mixxins.$cl_ddd;
     // margin: 0 1rem; 
     display: flex;
     align-items: center;
@@ -322,8 +322,8 @@ body {
 
 .c-openchat__box {
   &__header {
-    padding: 1rem 0;
-    border-bottom: 1px solid #f1f4f6;
+    padding: 1.6rem 1.5rem;
+    border-bottom: 1px solid mixxins.$cl_ddd;
     display: flex;
     align-items: center;
     background-color: #fff;
